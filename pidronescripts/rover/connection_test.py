@@ -20,7 +20,7 @@ import argparse
 
 #########FUNCTIONS#################
 
-def connectMyCopter():
+def connectRoberto():
     parser = argparse.ArgumentParser(description='commands')
     parser.add_argument('--connect', help='Connection string for the vehicle')
     args = parser.parse_args()
@@ -61,8 +61,8 @@ def arm():
 
 ##########MAIN EXECUTABLE###########
 
-vehicle = connectMyCopter()
-# Connect to the vehicle using the connectMyCopter function
+vehicle = connectRoberto()
+# Connect to the vehicle using the connecRoberto function
 
 vehicle.wait_ready('autopilot_version')
 # Wait until the autopilot version is available
