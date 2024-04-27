@@ -8,11 +8,6 @@ We are taking 2 approaches to prototyping that solution.
 1. Create an RC Car like robot operated via Raspberry PI along with a <a href="https://pixhawk.org/" target="_blank">PixHawk</a> for navigation.
 2. Roomba controlled via a Raspberry PI communicating via the serial port.
 
-# What we are doing...
-This project entails creating a prototype that will automatically navigate an indoor range picking up spent cartridges and deposting them in an onboard bin. <br>
-We plan to create a scaled down version of the <a href="https://ammoupusa.com/" target="_blank">AmmoUp</a> wheel.
-iRobot Roomba has an open interface that allows developers to control the robot.
-
 # Materials - Roomba Implementation
 ## Hardware
 | Qnty | Description |
@@ -45,9 +40,22 @@ iRobot Roomba has an open interface that allows developers to control the robot.
  - Screw/Hex driver depending on fasteners chosen
 
 # Instructions
+A few things:
+ - Design is based on not opening Roomba or using it's power source
+ - RPI and Roomba use different logic levels 0-3.3v and 0-5v respectively (hence the Logic Level Converter)
+ - Our concentration is to pick up brass, then work on a proper mapping algorithm
+
+
 
 # Issues / Challenges
+ - Roomba to RPI serial communications seems to flake out. We've seen the same python code execute flawlessly once and then fail the very next execution.
+ - Roomba wheel encoder(s) not reporting proper values. This has only happened on the Left wheel...and we replaced the whole wheel with same exact results (seems to be serial issue or problem on the main board)
+ - Roomba doesn't go straight (ever) - perhaps this is related to bullet above
+ - Adding LIDAR turned out to not be possible on RPI Zero. It only has one UART for Serial communication
 
 # What's Next...
-
+ - Work on code to monitor (and react to) sensors while roomba is moving. This has been more challenging then 1st thought
+ - Imporve 3d parts for fitment
+ - Add LIDAR and implement SLAM algorithm for range mapping
+ - Add object detection and avoidance
 
