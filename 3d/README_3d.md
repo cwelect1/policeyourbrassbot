@@ -1,8 +1,9 @@
 # Police Your Brass Bot - 3d Model Info
+
 # Printers
 |<a href="https://bambulab.com/en/p1" target="_blank">P1S</a>|<a href="https://qidi3d.com/products/qidi-x-max-3" target="_blank">XMAX3</a>|
 |:---:|:---:|
-|![Alt text](P1S.jpeg)|![Alt text](xmax3.jpeg)| 
+|![Alt text](../documentation/P1S.jpeg)|![Alt text](../documentation/xmax3.jpeg)| 
 
 # Model Settings
 ### PLA+ Files
