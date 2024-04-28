@@ -46,9 +46,27 @@ A few things:
  - RPI and Roomba use different logic levels 0-3.3v and 0-5v respectively (hence the Logic Level Converter)
  - Our concentration is to pick up brass, then work on a proper mapping algorithm
 
-# Hardware
+## Hardware
+### PI UART (Serial) to Roomba Mini-Din (Serial Port)
+In order to communicate with the Roomba, we need to connect to:<br>
+<table><tr><td>
 
-# Software
+- Transmit (TX pin 4)
+- Recieve (RX pin 3) 
+- Ground (pin 6 or 7)
+
+</td><td>
+
+![Alt text](documentation/Roomba_Pinout.png)
+
+</td></tr></table>
+
+Roomba uses 5v logic levels and Raspberry PI 3.3v. To rememdy this difference and not fry the PI, we<br>
+utilize the Sparkfun Logic Level Board. We only need 2 of the 4 channels.<br>
+
+![Alt text](documentation/LLV_Board.png)
+
+## Software
 ## Raspberry PI Setup
 We are going to interact with the PI as a headless server and don't need the GUI. Ensure that:<br>
  - wifi is setup and working
@@ -57,6 +75,17 @@ We are going to interact with the PI as a headless server and don't need the GUI
 
 <a href="https://www.raspberrypi.com/documentation/computers/getting-started.html" target="_blank">Here's</a> a link to the offical RPI Getting Started docs.<br>
 
+### Enable UART on RPI
+***You need to REBOOT after this config update*** 
+```
+cd to /boot/config on the PI
+
+# Comment out the console entry
+# console=serial0,115200
+#Enable UART if it isn't already enabled
+
+enable_uart=1
+```
 ### Install Required Libraries
 1. ssh into the pi using your username@your_rpi's_ip_address
 ```
@@ -88,7 +117,10 @@ git clone git@github.com:cwelect1/policeyourbrassbot.git
 
 # What's Next...
  - Work on code to monitor (and react to) sensors while roomba is moving. This has been more challenging then 1st thought
- - Imporve 3d parts for fitment
+ - Improve 3d parts for fitment
  - Add LIDAR and implement SLAM algorithm for range mapping
  - Add object detection and avoidance
 
+# References
+ - Logic Level Board <a href="https://learn.sparkfun.com/tutorials/bi-directional-logic-level-converter-hookup-guide" target="_blank">Hookup Info/Diagram</a>
+ - Roomba <a href="https://edu.irobot.com/learning-library/create-2-oi-spec" target="_blank">Open Interface</a> spec 
