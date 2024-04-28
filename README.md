@@ -38,6 +38,7 @@ We are taking 2 approaches to prototyping that solution.
  - Soldering Iron / Solder
  - Drill and bits (1/2", and 5/32")
  - Screw/Hex driver depending on fasteners chosen
+ - RPI supplies (Monitor, keyboard, power supply, hdmi adapter/cables)
 
 # Instructions
 A few things:
@@ -45,6 +46,38 @@ A few things:
  - RPI and Roomba use different logic levels 0-3.3v and 0-5v respectively (hence the Logic Level Converter)
  - Our concentration is to pick up brass, then work on a proper mapping algorithm
 
+# Hardware
+
+# Software
+## Raspberry PI Setup
+We are going to interact with the PI as a headless server and don't need the GUI. Ensure that:<br>
+ - wifi is setup and working
+ - SSH is enabled
+ - know your username and pwd (obviously the defaults should be changed)
+
+<a href="https://www.raspberrypi.com/documentation/computers/getting-started.html" target="_blank">Here's</a> a link to the offical RPI Getting Started docs.<br>
+
+### Install Required Libraries
+1. ssh into the pi using your username@your_rpi's_ip_address
+```
+ssh pi@192.168.1.1
+```
+2. Confirm that you have Python 3.6 or higher installed. RPI comes installed with both 2.x and 3.x.
+```
+python3 -V
+```
+3. Install <a href="https://pypi.org/project/pyserial/" target="_blank">pyserial</a>. 
+```
+pip3 install pyserial
+```
+4. Install <a href="https://atsushisakai.github.io/PyRoombaAdapter/" target="_blank">pyrommbaadapter</a>. 
+```
+pip3 install pyroombaadapter
+```
+5. ...and finally...clone our <a href="https://github.com/cwelect1/policeyourbrassbot" target="_blank">repo</a>.
+```
+git clone git@github.com:cwelect1/policeyourbrassbot.git
+```
 
 
 # Issues / Challenges
