@@ -66,6 +66,12 @@ utilize the Sparkfun Logic Level Board. We only need 2 of the 4 channels.<br>
 
 ![Alt text](documentation/LLV_Board.png)
 
+### Wiring Diagram
+The pinout on RPI Zero, Zero 2, and 4B are all the same.<br>
+Here's an example of how to wire the RPI, Logic Level board, and Roomba together.
+
+![Alt text](documentation/Wiring.png)
+
 ## Software
 ## Raspberry PI Setup
 We are going to interact with the PI as a headless server and don't need the GUI. Ensure that:<br>
