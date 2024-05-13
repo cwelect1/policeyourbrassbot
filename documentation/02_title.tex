@@ -1,0 +1,36 @@
+% 02_title.tex
+
+% this file  will be added and used to creat the white space gaps 
+\thispagestyle{plain}
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+\begin{tcolorbox}[width=\textwidth,center upper, fontupper=\center\LARGE,sharp corners,colframe=black,colback=white]
+    {\scshape\textls[225]{\MakeUppercase{\Journal}}}
+\end{tcolorbox}
+\vspace{2\baselineskip}
+
+\begin{raggedright}
+    \begin{addmargin}[0em]{3em}
+        {\noindent\large\MakeUppercase{\TITLE}\TitleFoot}
+    \end{addmargin}
+\end{raggedright}
+
+\vspace{0.5\baselineskip}
+
+\begin{addmargin}[1em]{0em}
+    {\noindent\large\textit{\AUTHOR}\AuthorFoot}
+\end{addmargin}
+
+\vspace{0.5\baselineskip}
+
+\begin{addmargin}[2em]{2em}
+    {\noindent\small\fontsize{11}{13}\selectfont\ABSTRACT\par}
+    {\vspace{0.5\baselineskip}}
+    {\noindent\small\itshape\fontsize{11}{13}\selectfont{Keywords:~\KEYWORDS}\par}
+\end{addmargin}
+
+\vspace{1\baselineskip}
+
+\pagestyle{scrheadings}
+\renewcommand*{\thefootnote}{\arabic{footnote}}
+\setcounter{footnote}{0}

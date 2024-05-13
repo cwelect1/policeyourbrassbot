@@ -1,0 +1,146 @@
+% 00_preamble.tex
+
+\usepackage[authordate, backend=biber, natbib=true]{biblatex-chicago}
+\addbibresource{bibliography.bib} % my bib file
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[most]{tcolorbox}
+\usepackage[noframe]{showframe}
+\usepackage{mwe}
+\usepackage{scrlayer-scrpage}
+\usepackage{hyphenat}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage{fontaxes}
+\usepackage{hyperref}
+\usepackage[bottom,splitrule,hang,flushmargin]{footmisc}
+
+\usepackage[
+    protrusion=true,
+    expansion=true,
+    spacing=true,
+    tracking=true,
+    kerning=true
+]{microtype}
+
+\KOMAoptions{
+    paper=a5,
+    fontsize=12pt,
+    egregdoesnotlikesansseriftitles,
+    headings=small,
+    headings=optiontohead,
+    BCOR=5mm,
+    DIV=14,
+    parskip=false,
+    footnotes=multiple,
+    twoside=true,
+}
+
+% HEADER
+\setlength{\headsep}{1\baselineskip}
+\setlength{\headheight}{3\baselineskip}
+\setkomafont{pagehead}{\normalfont}
+%%% \*head[<for 'plain' page>]{<for 'scrheadings' page>}
+\ohead[\lsstyle NUMBER~\liningfigures{\Number}]{}
+\chead[\lsstyle\MakeUppercase{\Month}~\liningfigures{\Year}]{\small\scshape\MakeLowercase{\Journal}}
+\ihead[\lsstyle VOLUME~\liningfigures{\Volume}]{}
+%%% Fill in the blanks
+\lehead{\small\thepage}
+\rohead{\small\liningfigures{\thepage}}
+\lohead{\small\Year]}
+\rehead{\small[Vol.~\Volume}
+\cohead{\small\scshape\MakeLowercase{\Title}}
+
+% FOOTER and FOOTNOTE
+\setlength{\footskip}{1.5\baselineskip}
+\setkomafont{pagefoot}{\normalfont}
+%%% \*foot[<for 'plain' page>]{<for 'scrheadings' page>}
+\ofoot[\small\liningfigures{\thepage}]{}
+\cfoot[]{}
+\ifoot[]{}
+\setfootnoterule[]{\textwidth}
+
+% FONT
+\usepackage[osf]{Baskervaldx}
+
+% SECTION HEADINGS
+\setcounter{secnumdepth}{1}
+\let\raggedsection\centering
+\renewcommand{\thesection}{\Roman{section}} 
+\renewcommand\sectionformat{\liningfigures{\thesection}.\enskip}
+\renewcommand{\thesubsection}{\thesection.\Roman{subsection}}
+\renewcommand\subsectionformat{\thesubsection.\enskip}
+
+\setkomafont{section}{\bfseries}
+\RedeclareSectionCommand[
+  %runin=false,
+  afterindent=false,
+  beforeskip=1\baselineskip,
+  afterskip=.25\baselineskip]{section}
+
+\setkomafont{subsection}{\normalfont\itshape}
+\RedeclareSectionCommand[
+  %runin=false,
+  afterindent=false,
+  beforeskip=1\baselineskip,
+  afterskip=.25\baselineskip]{subsection}
+
+\RedeclareSectionCommand[
+  %runin=false,
+  afterindent=false,
+  beforeskip=.5\baselineskip,
+  afterskip=.25\baselineskip]{subsubsection}
+  
+\RedeclareSectionCommand[
+  runin=true,
+  %afterindent=false,
+  beforeskip=.5\baselineskip,
+  afterskip=1em]{paragraph}
+
+\RedeclareSectionCommand[
+  runin=true,
+  %afterindent=false,
+  beforeskip=.5\baselineskip,
+  afterskip=1em]{subparagraph}
+
+% LETTRINE
+\usepackage{lettrine}
+\setlength{\emergencystretch}{2pt}
+\def\drop #1#2 {% note the space before {
+  \lettrine[lines=2,loversize=0.1,nindent=2pt]{#1}{#2} % a trailing space
+}
+
+\raggedbottom
+
+
+% Computer Code Styleguide. 
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Define more subdued colors or remove colors altogether
+\definecolor{commentcolor}{rgb}{0.5,0.5,0.5} % Gray for comments
+\definecolor{backcolour}{rgb}{0.95,0.95,0.95} % Very light gray background, or consider removing the background color entirely
+
+% Setup the listings package for a professional, academic style
+\lstdefinestyle{hlrstyle}{
+    backgroundcolor=\color{white},   % No background color for a clean look
+    commentstyle=\color{commentcolor},
+    keywordstyle=\bfseries,          % Bold for keywords, no color
+    numberstyle=\tiny\color{black},  % Line numbers in black
+    stringstyle=\ttfamily,           % Typewriter font for strings, no color
+    basicstyle=\footnotesize\ttfamily, % Typewriter font
+    breakatwhitespace=true,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=hlrstyle}
